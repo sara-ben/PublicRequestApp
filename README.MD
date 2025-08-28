@@ -94,4 +94,4 @@ Tables, forms, and buttons adjust automatically, and horizontal scrolling is ena
 ## Demo 🖼️
 
 ![Add Request Form](pic1.png)
-![Requests Summary Chart](pic2.png)
+![Requests Summary Chart](pic3.png)
