@@ -1,0 +1,47 @@
+<form #requestForm="ngForm" (ngSubmit)="onSubmit()">
+	<div>
+		<label for="name">שם:</label>
+		<input id="name" name="name" type="text" required [(ngModel)]="formData.name">
+	</div>
+	<div>
+		<label for="phone">טלפון:</label>
+		<input id="phone" name="phone" type="tel" required [(ngModel)]="formData.phone">
+	</div>
+	<div>
+		<label for="email">אימייל:</label>
+		<input id="email" name="email" type="email" required [(ngModel)]="formData.email">
+	</div>
+	<div>
+		<label for="department">מחלקה:</label>
+		<select id="department" name="department" required [(ngModel)]="formData.department">
+			<option value="">בחר מחלקה</option>
+			<option value="שירות לקוחות">שירות לקוחות</option>
+			<option value="תמיכה טכנית">תמיכה טכנית</option>
+			<option value="חשבונות">חשבונות</option>
+			<option value="אחר">אחר</option>
+		</select>
+	</div>
+	<div>
+		<label for="description">תיאור הפנייה:</label>
+		<textarea id="description" name="description" rows="4" required [(ngModel)]="formData.description"></textarea>
+	</div>
+			<button type="submit" [disabled]="requestForm.invalid">שלח פנייה</button>
+			<button type="button" (click)="viewStatistics()" class="statistics-btn">צפיה בסטטיסטיקה</button>
+</form>
+
+		<div *ngIf="statisticsError" style="color:red; text-align:center; margin-top:16px;">
+			{{ statisticsError }}
+		</div>
+
+		<table *ngIf="statistics.length">
+  <thead>
+    <tr>
+      <th *ngFor="let col of columns">{{ col }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of statistics">
+      <td *ngFor="let col of columns">{{ row[col] }}</td>
+    </tr>
+  </tbody>
+</table>
