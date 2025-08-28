@@ -32,16 +32,17 @@
 		<div *ngIf="statisticsError" style="color:red; text-align:center; margin-top:16px;">
 			{{ statisticsError }}
 		</div>
-
-		<table *ngIf="statistics.length">
-  <thead>
-    <tr>
-      <th *ngFor="let col of columns">{{ col }}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let row of statistics">
-      <td *ngFor="let col of columns">{{ row[col] }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-container">
+	<table *ngIf="statistics.length">
+	<thead>
+		<tr>
+		<th *ngFor="let col of columns">{{ col }}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let row of statistics">
+		<td *ngFor="let col of columns">{{ row[col] }}</td>
+		</tr>
+	</tbody>
+	</table>
+</div>
